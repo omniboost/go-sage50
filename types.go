@@ -1,4 +1,4 @@
-package datev
+package sage50
 
 import (
 	"encoding/json"

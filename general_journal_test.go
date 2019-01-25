@@ -1,4 +1,4 @@
-package datev_test
+package sage50_test
 
 import (
 	"log"
