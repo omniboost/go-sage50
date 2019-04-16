@@ -15,8 +15,8 @@ func NewCSVHeaderLine() []string {
 		"Type",
 		"CAcc",
 		"TaxId",
-		"Tidx",
-		"Cidx",
+		"TIdx",
+		"CIdx",
 		"BType",
 		"Code",
 		"ValNt",
@@ -24,9 +24,10 @@ func NewCSVHeaderLine() []string {
 		"ValFW",
 		"Text",
 		"Text2",
-		"PrKey",
+		"PkKey",
 		"OpId",
 		"Flags",
+		"DocId",
 	}
 }
 
@@ -35,7 +36,7 @@ type CSVBookingLine struct {
 	Date
 	// 	AccId : String[13]
 	// The Id of a book keeping account. [Fibu-Konto]
-	AccId string
+	AccID string
 	// Grp: String[1]
 	// Any character to mark your bookings so your can retreave them later.
 	Grp string
@@ -67,13 +68,13 @@ type CSVBookingLine struct {
 	CAcc string
 	// TaxId : String[5]
 	// The Id of the tax. [MWSt-Kürzel]
-	TaxId string
+	TaxID string
 	// TIdx : Integer
 	// This is the index of the booking that represents the tax booking which is attached to this booking.
-	Tidx int
+	TIdx int
 	// CIdx : Integer
 	// This is the index of the booking that represents the cost booking which is
-	Cidx int
+	CIdx int
 	// BType : Integer
 	// Booking type: 1=cost booking, 2=tax booking
 	BType int
@@ -96,15 +97,16 @@ type CSVBookingLine struct {
 	Text2 string
 	// PkKey : Long
 	// The PK number of this booking.
-	PrKey int
+	PkKey int
 	// OpId : String[13] (Primary Key)
 	// OP Nr: The unique identifier for the OP records.
-	OpId string
+	OpID string
 	// Flags : Integer Auxilliary flags.
 	// This value consists of the sum of one or more of the following biases:
 	// 1 OP is from a creditor.
 	// 2 OP has foreign currency.
 	Flags int
+	DocID string
 }
 
 func (l CSVBookingLine) Validate() []error {
@@ -116,15 +118,15 @@ func (l CSVBookingLine) Values() []interface{} {
 	return []interface{}{
 		l.BlgNr,
 		l.Date,
-		l.AccId,
+		l.AccID,
 		l.Grp,
 		l.Orig,
 		l.MType,
 		l.Type,
 		l.CAcc,
-		l.TaxId,
-		l.Tidx,
-		l.Cidx,
+		l.TaxID,
+		l.TIdx,
+		l.CIdx,
 		l.BType,
 		l.Code,
 		l.ValNt,
@@ -132,9 +134,10 @@ func (l CSVBookingLine) Values() []interface{} {
 		l.ValFW,
 		l.Text,
 		l.Text2,
-		l.PrKey,
-		l.OpId,
+		l.PkKey,
+		l.OpID,
 		l.Flags,
+		l.DocID,
 	}
 }
 
