@@ -33,7 +33,7 @@ func NewCSVHeaderLine() []string {
 
 type CSVBookingLine struct {
 	BlgNr int
-	Date
+	Date  Date
 	// 	AccId : String[13]
 	// The Id of a book keeping account. [Fibu-Konto]
 	AccID string

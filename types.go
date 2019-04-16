@@ -39,7 +39,7 @@ func (d *Date) String() string {
 	if d.IsZero() {
 		return ""
 	}
-	return d.Time.Format("20060102")
+	return d.Time.Format("02.01.06")
 }
 
 // used for csv export
@@ -71,7 +71,7 @@ func (d *Date) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	// try datev date format
-	d.Time, err = time.Parse("20060102", value)
+	d.Time, err = time.Parse("02.01.06", value)
 	return err
 }
 
