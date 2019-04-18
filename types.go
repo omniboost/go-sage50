@@ -25,7 +25,7 @@ func (d Decimal) String() string {
 		return ""
 	}
 	s := fmt.Sprintf("%.2f", float64(d))
-	return strings.Replace(s, ".", ",", -1)
+	return s
 }
 
 type Date struct {
